@@ -1,11 +1,8 @@
-package com.bankwithmint.repository
-
-import com.bankwithmint.network.RetrofitClient
-import com.bankwithmint.network.SafeApiRequest
+package com.bankwithmint.network
 
 import com.bankwithmint.response.CardDetails
 
-class CardRepository : SafeApiRequest(){
+class ProcessService : SafeApiRequest(){
 
     val call = RetrofitClient
 
