@@ -1,188 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
+    <include layout="@layout/topbar_item" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:paddingBottom="20dp">
 
-            <TextView
-                android:id="@+id/network_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAppearance="?android:textAppearanceMedium"
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/launcer_icon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/network"
-                tools:text="Visa" />
-
-            <TextView
-                android:id="@+id/network"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="16dp"
-                android:text="SCHEME/NETWORK"
-                android:textAppearance="?android:textAppearanceMedium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
-            <TextView
-                android:id="@+id/type"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:id="@+id/contentLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:layout_marginTop="20dp"
-                android:text="TYPE"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/network" />
-
-            <TextView
-                android:id="@+id/type_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="dfkxg"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:background="@drawable/home_item_background"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:paddingStart="21sp"
+                android:paddingTop="30dp"
+                android:paddingEnd="21sp"
+                android:paddingBottom="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/type" />
-
-            <TextView
-                android:id="@+id/bank"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="20dp"
-                android:text="BANK"
-                android:textAppearance="?android:textAppearanceMedium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/type" />
+                app:layout_constraintTop_toBottomOf="@+id/imgLogo">
 
-            <TextView
-                android:id="@+id/bank_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/bank" />
+                <LinearLayout
+                    android:id="@+id/networkLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/brand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                    <TextView
+                        style="@style/TextLightBlue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/network_data"
+                        tools:ignore="NestedWeights" />
 
-                android:layout_marginTop="20dp"
-                android:text="BRAND"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bank" />
+                    <TextView
+                        android:id="@+id/network_data"
+                        style="@style/TextAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/heebo_medium"
+                        android:textSize="15sp"
+                        tools:text="@android:string/unknownName" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/brand_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/brand" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/prepaid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="PREPAID"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/brand" />
+                    <TextView
+                        style="@style/TextLightBlue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/type_data"
+                        tools:ignore="NestedWeights" />
 
-            <TextView
-                android:id="@+id/prepaid_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:textStyle="bold"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/prepaid" />
+                    <TextView
+                        android:id="@+id/type_data"
+                        style="@style/TextAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/heebo_medium"
+                        android:textSize="15sp"
+                        tools:text="@android:string/unknownName" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/country"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Country"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/prepaid" />
+                <LinearLayout
+                    android:id="@+id/bank_dataLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/country_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:textStyle="bold"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/country" />
+                    <TextView
+                        style="@style/TextLightBlue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/bank_data"
+                        tools:ignore="NestedWeights" />
 
+                    <TextView
+                        android:id="@+id/bank_data"
+                        style="@style/TextAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/heebo_medium"
+                        android:textSize="15sp"
+                        tools:text="@android:string/unknownName" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Phone Number"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/country" />
+                <LinearLayout
+                    android:id="@+id/branddataLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/phone_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/phone" />
+                    <TextView
+                        style="@style/TextLightBlue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/brand_data"
+                        tools:ignore="NestedWeights" />
 
-            <TextView
-                android:id="@+id/city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                    <TextView
+                        android:id="@+id/brand_data"
+                        style="@style/TextAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/heebo_medium"
+                        android:textSize="15sp"
+                        tools:text="@android:string/unknownName" />
+                </LinearLayout>
 
-                android:layout_marginTop="20dp"
-                android:text="City"
-                android:textAppearance="?android:textAppearanceMedium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phone" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/city_data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="64dp"
-                android:layout_marginRight="64dp"
-               android:textStyle="bold"
-                android:textAppearance="?android:textAppearanceSmall"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/city" />
+                    <TextView
+                        style="@style/TextLightBlue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/prepaid_data"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/prepaid_data"
+                        style="@style/TextAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/heebo_medium"
+                        android:textSize="15sp"
+                        tools:text="@android:string/unknownName" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/countryTotalLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextLightBlue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/country"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/country_data"
+                        style="@style/TextAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/heebo_medium"
+                        android:textSize="15sp"
+                        tools:text="@android:string/unknownName" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/phoneLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextLightBlue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/phone_number"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/phone_data"
+                        style="@style/TextAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/heebo_medium"
+                        android:textSize="15sp"
+                        tools:text="@android:string/unknownName" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        style="@style/TextLightBlue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/city"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/city_data"
+                        style="@style/TextAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/heebo_medium"
+                        android:textSize="15sp"
+                       />
+                </LinearLayout>
+
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

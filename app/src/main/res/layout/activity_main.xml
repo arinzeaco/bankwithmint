@@ -5,12 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp"
     tools:context=".MainActivity">
+    <include layout="@layout/topbar_item" />
 
 
     <mostafa.ma.saleh.gmail.com.editcredit.EditCredit
         android:id="@+id/cardNumber"
+        style="@style/StandardTextField"
+        android:layout_margin="30dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
@@ -41,7 +43,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:elevation="@dimen/_4sdp"
         android:text="@string/get_details"
-        app:layout_constraintStart_toStartOf="@id/cardNumber"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardNumber" />
 

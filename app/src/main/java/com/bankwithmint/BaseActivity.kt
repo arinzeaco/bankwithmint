@@ -19,7 +19,6 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var processService: ProcessService
     lateinit var progressDialog: ProgressDialog
 
-
     @LayoutRes
     abstract fun getLayoutId(): Int
 
@@ -31,8 +30,8 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
         processService = ProcessService()
-        this.progressDialog = ProgressDialog(this)
-
+        this.progressDialog = ProgressDialog(this,R.style.MyAlertDialogStyle)
+        progressDialog.setMessage("fetching card data please wait...")
     }
     fun showProgressDialog(isShow: Boolean) {
         if (isShow) {
@@ -53,7 +52,6 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         initView()
-
     }
 
      fun validatefield(cardnum: String): Boolean {
@@ -61,8 +59,7 @@ abstract class BaseActivity : AppCompatActivity() {
             return false
         }
             return true
-    }
-
+     }
 
 
     fun checkError(errorMessage: String) {

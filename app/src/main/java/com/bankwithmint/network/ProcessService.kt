@@ -6,7 +6,7 @@ class ProcessService : SafeApiRequest(){
 
     val call = RetrofitClient
 
-    suspend fun cardNumber(cardNumber: String): CardDetails {
+    suspend fun getcardDetails(cardNumber: String): CardDetails {
         return apiRequest {call.instance().getCardDetails(cardNumber)}
     }
 

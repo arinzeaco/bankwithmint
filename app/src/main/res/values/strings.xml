@@ -1,8 +1,17 @@
 <resources>
     <string name="app_name">Bankwithmint</string>
-    <string name="enter_a_card_number">Enter a card Number</string>
+    <string name="enter_a_card_number">Enter a valid card Number</string>
     <string name="check_your_internet_connection">Check your internet connection</string>
     <string name="system_error">Something went wrong. Please try again later</string>
     <string name="get_details">Get Details</string>
+    <string name="city">City</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="country">Country</string>
+    <string name="prepaid_data">Prepaid Data</string>
+    <string name="brand_data">Brand Data</string>
+    <string name="bank_data">Bank Data</string>
+    <string name="type_data">Type Data</string>
+    <string name="network_data">Network Data</string>
+    <string name="card_details">Card Details</string>
 
 </resources>
