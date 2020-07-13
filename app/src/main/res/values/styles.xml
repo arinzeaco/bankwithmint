@@ -7,4 +7,24 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="StandardTextField" parent="AppTheme">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:padding">@dimen/_8sdp</item>
+        <item name="android:drawablePadding">@dimen/_10sdp</item>
+        <item name="android:background">@drawable/rounded_background_selector</item>
+        <item name="android:layout_height">@dimen/_40sdp</item>
+        <item name="android:fontFamily">@font/heebo</item>
+    </style>
+
+    <style name="ButtonRound" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:background">@drawable/rounded_button_selector</item>
+        <item name="android:layout_height">@dimen/_40sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingRight">@dimen/_18sdp</item>
+        <item name="android:paddingLeft">@dimen/_18sdp</item>
+        <item name="android:fontFamily">@font/heebo_medium</item>
+        <item name="android:letterSpacing">0.19</item>
+    </style>
 </resources>

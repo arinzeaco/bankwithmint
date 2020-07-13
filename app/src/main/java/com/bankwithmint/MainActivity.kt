@@ -2,7 +2,9 @@ package com.bankwithmint
 
 
 import android.content.Intent
+import android.util.Log
 import com.bankwithmint.constant.Constant
+import com.bankwithmint.util.ApiException
 import com.bankwithmint.util.Coroutines
 import com.google.gson.Gson
 import com.shashank.sony.fancytoastlib.FancyToast
@@ -36,7 +38,7 @@ class MainActivity : BaseActivity() {
         Coroutines.main {
             showProgressDialog(true)
             try {
-                val authResponse = processService.cardNumber(cardNumber.text.toString())
+                val authResponse = processService.cardNumber("45717360")
                 authResponse.let {
                     showProgressDialog(false)
                     val intent= Intent(this, CardDetail::class.java).apply {
@@ -44,11 +46,9 @@ class MainActivity : BaseActivity() {
                     }
                     startActivity(intent)
                 }
-            }catch(e: IOException){
+            }catch(e: ApiException){
                 showProgressDialog(false)
-                handleError(e.message)
-
-
+               checkError(e.message!!)
             }
         }
 

@@ -4,23 +4,18 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.bankwithmint.constant.Constant
 import com.bankwithmint.network.ProcessService
 import com.shashank.sony.fancytoastlib.FancyToast
-import kotlinx.android.synthetic.main.activity_main.*
-import org.xml.sax.ErrorHandler
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    abstract val errorHandler: ErrorHandler
     lateinit var processService: ProcessService
     lateinit var progressDialog: ProgressDialog
 
@@ -68,21 +63,18 @@ abstract class BaseActivity : AppCompatActivity() {
             return true
     }
 
-   fun network(){
-      if( isNetworkAvailable()){
-          FancyToast.makeText(this, this.getString(R.string.check_your_internet_connection),
-              FancyToast.LENGTH_SHORT,  FancyToast.ERROR, false).show()
-      }
-   }
 
-    fun network(error: Throwable, option: Any?) {
+
+    fun checkError(errorMessage: String) {
         try {
+//   Check internet connection
             if (!isNetworkAvailable()) {
                 FancyToast.makeText(this, this.getString(R.string.check_your_internet_connection),
                     FancyToast.LENGTH_SHORT,  FancyToast.ERROR, false).show()
+                return
             } else {
-//                errorHandler.handle(error, this, option)
-            }
+                FancyToast.makeText(this, errorMessage, FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
+           }
         } catch (e: Exception) {
             FancyToast.makeText(this, getString(R.string.system_error), FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
         }
@@ -117,7 +109,5 @@ abstract class BaseActivity : AppCompatActivity() {
         return false
     }
 
-     fun handleError(message: String?){
 
-     }
 }
