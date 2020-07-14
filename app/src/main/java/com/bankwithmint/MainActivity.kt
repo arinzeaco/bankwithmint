@@ -20,8 +20,8 @@ class MainActivity : BaseActivity() {
         return R.layout.activity_main
     }
     override fun initView() {
-        cardNumber.setText("45717360")
-        topbarTitle.setText("BankWithMint")
+//        cardNumber.setText("45717360")
+        topbarTitle.setText(this.getString(R.string.app_name))
         backBtn.visibility= View.GONE
         ic_less_than.visibility= View.GONE
         get_details.setOnClickListener {
