@@ -1,12 +1,9 @@
 package com.bankwithmint
 
 
-import android.util.Log
 import com.bankwithmint.mocktretrofit.ApiPlaceholer
 import com.bankwithmint.mocktretrofit.JsonRepository
 import com.bankwithmint.mocktretrofit.MockResponseFileReader
-import com.bankwithmint.network.ProcessService
-import com.bankwithmint.network.RetrofitClient
 import com.google.gson.Gson
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -17,7 +14,6 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 @RunWith(JUnit4::class)
