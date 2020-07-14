@@ -70,7 +70,7 @@ abstract class BaseActivity : AppCompatActivity() {
                     FancyToast.LENGTH_SHORT,  FancyToast.ERROR, false).show()
                 return
             } else {
-                FancyToast.makeText(this, errorMessage, FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
+                FancyToast.makeText(this, "Number not recognised "+errorMessage, FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
            }
         } catch (e: Exception) {
             FancyToast.makeText(this, getString(R.string.system_error), FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
